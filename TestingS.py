@@ -22,7 +22,7 @@ def fetch_protein_network_data():
         'identifiers': '%0d'.join(proteins),
         'species': 9606,
         'required_score': 400,
-        'caller_identity': 'TestingS.py'
+        'caller_identity': 'TheCodeS.py'
     }
 
     # Send the request and retrieve the data

@@ -1,5 +1,4 @@
 #Importing all the requested libraries
-
 import pytest
 import requests
 import pandas as pd
@@ -23,7 +22,7 @@ def fetch_protein_network_data():
         'identifiers': '%0d'.join(proteins),
         'species': 9606,
         'required_score': 400,
-        'caller_identity': 'final_project.py'
+        'caller_identity': 'TestingS.py'
     }
 
     # Send the request and retrieve the data
@@ -34,10 +33,12 @@ def fetch_protein_network_data():
     return interactions
 
 def test_fetch_protein_network_data():
+
     interactions = fetch_protein_network_data()
     # Check if the returned value is a DataFrame
     assert isinstance(interactions, pd.DataFrame), "Returned value is not a DataFrame"
     assert not interactions.empty, "DataFrame is empty"
+
     # Check if the required columns are present
     assert "preferredName_A" in interactions.columns, "Column 'preferredName_A' is missing"
     assert "preferredName_B" in interactions.columns, "Column 'preferredName_B' is missing"
@@ -81,9 +82,11 @@ def test_create_protein_interaction_graph():
 
     for interaction in interactions.values:
         a, b, w = interaction[0], interaction[1], interaction[2]
+
         # Check if nodes are present in the graph
         assert a in G.nodes
         assert b in G.nodes
+
         # Check if edge weights are correct
         assert G[a][b]['weight'] == float(w)
 
@@ -102,7 +105,7 @@ def test_add_nodes_graph():
     
     proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
 
-# Check if the set of nodes in the graph matches the expected set of proteins 
+    # Check if the set of nodes in the graph matches the expected set of proteins 
     assert set(G.nodes()) == set(proteins), "Missing or additional proteins in the graph"
     
     # Check if the number of nodes in the graph matches the expected number of proteins

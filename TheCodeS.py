@@ -20,7 +20,7 @@ def fetch_protein_interaction_graph(proteins):
         'identifiers': '%0d'.join(proteins),
         'species': 9606,
         'required_score': 400,
-        'caller_identity': 'final_project.py'
+        'caller_identity': 'TheCodeS.py'
     }
     # Send the API request and get the response
     response = requests.get(url, params=params)

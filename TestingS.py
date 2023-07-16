@@ -96,9 +96,24 @@ def test_add_nodes_graph():
     """
     interactions = fetch_protein_network_data()
     G = create_protein_interaction_graph(interactions)
+     # Check if the returned value is an nx.Graph
+    assert isinstance(G, nx.Graph), "Returned value is not an nx.Graph"
+    
+    
     proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
+
+# Check if the set of nodes in the graph matches the expected set of proteins 
     assert set(G.nodes()) == set(proteins), "Missing or additional proteins in the graph"
+    
+    # Check if the number of nodes in the graph matches the expected number of proteins
     assert len(G.nodes()) == len(proteins), "Number of nodes in the graph is incorrect"
+
+    # Check if the graph is not empty
+    assert G.number_of_nodes() > 0, "Graph is empty"
+
+    # Check if the graph contains edges (interactions)
+    assert G.number_of_edges() > 0, "Graph has no interactions (edges)"
+
 
 # Run the tests
 if __name__ == '__main__':

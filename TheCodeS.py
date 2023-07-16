@@ -22,12 +22,25 @@ def fetch_protein_interaction_graph(proteins):
         'required_score': 400,
         'caller_identity': 'final_project.py'
     }
+    # Send the API request and get the response
     response = requests.get(url, params=params)
+
+    # Process the response data
     data = [line.split('\t') for line in response.content.decode('utf-8').split('\n') if line and line[0] != '#']
+    
+    # Create a DataFrame from the response data
     df = pd.DataFrame(data[1:-1], columns=data[0])
+    
+    # Extract the relevant columns for interactions
     interactions = df[['preferredName_A', 'preferredName_B', 'score']]
-    G = nx.Graph(name='Protein Interaction Graph')
+    
+    # Create an empty graph object
+    G = nx.DiGraph(name='Protein Interaction Graph')
+
+    # Convert the interactions to a numpy array for processing
     interactions = np.array(interactions)
+
+    # Iterate over the interactions and add edges to the graph
     for i in range(len(interactions)):
         interaction = interactions[i]
         a = interaction[0]  # first node

@@ -47,6 +47,10 @@ def fetch_protein_interaction_graph(proteins):
         b = interaction[1]  # second node
         w = float(interaction[2])  # score as weighted edge where high scores = low weight
         G.add_weighted_edges_from([(a, b, w)])
+
+        # Save the graph in GML format
+    nx.write_gml(G, "protein_interaction_graph.gml")
+    
     return G
 
 

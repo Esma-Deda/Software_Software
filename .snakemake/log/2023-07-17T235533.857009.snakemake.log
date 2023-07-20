@@ -1,0 +1,29 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 8
+Rules claiming more threads will be scaled down.
+Job stats:
+job                                count    min threads    max threads
+-------------------------------  -------  -------------  -------------
+fetch_protein_interaction_graph        1              1              1
+total                                  1              1              1
+
+Select jobs to execute...
+
+[Mon Jul 17 23:55:33 2023]
+rule fetch_protein_interaction_graph:
+    input: proteins.txt
+    output: protein_interaction_graph.graphml
+    jobid: 0
+    reason: Missing output files: protein_interaction_graph.graphml
+    resources: tmpdir=/var/folders/m9/n1gbc5ms5sg1cd8srnsr2q_c0000gn/T
+
+[Mon Jul 17 23:55:33 2023]
+Error in rule fetch_protein_interaction_graph:
+    jobid: 0
+    input: proteins.txt
+    output: protein_interaction_graph.graphml
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2023-07-17T235533.857009.snakemake.log

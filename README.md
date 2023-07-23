@@ -8,8 +8,11 @@ Code Files
 The repository consists of the following main code files:
 
 1.TheCodeS.py: This file contains the core functions for fetching protein interaction data from the STRING-DB API, building the protein interaction graph, and visualizing the graph using NetworkX and Matplotlib libraries.
+
 2.TestingS.py: This file contains test functions to ensure the correctness and reliability of the protein interaction fetching and graph building processes. The tests are implemented using the pytest framework.
+
 3.OOP.py: This file demonstrates object-oriented programming (OOP) techniques to enhance code modularity and reusability. It defines classes for fetching protein interaction data, building the graph, and visualizing the graph.
+
 4.Snakefile: The Snakemake workflow file automates the entire process of fetching protein interaction data, building the graph, and visualizing the graph using defined rules.
 
 Workflow
@@ -17,10 +20,16 @@ Workflow
 The protein interaction analysis workflow consists of the following steps:
 
 1.Fetching Protein Interaction Data: The code fetches protein interaction data from the STRING-DB API based on the list of specified proteins. The data is then processed and stored in a DataFrame.
-2.Building the Protein Interaction Graph: The fetched protein interaction data is used to construct a weighted graph, where proteins are nodes, and interactions are represented as edges.
+
+2.Building the Protein Interaction Graph: The fetched prot
+ein interaction data is used to construct a weighted graph, where proteins are nodes, and interactions are represented as edges.
+
 3.Visualization: The graph is visualized using NetworkX and Matplotlib, producing a plot that showcases the protein interactions.
+
 4.Testing: The code includes a testing module with pytest functions to ensure the accuracy of fetching data and building the graph.
+
 5.Object-Oriented Programming: The code implements OOP principles by defining classes for the interaction fetching, graph building, and graph visualization processes.
+
 6.Snakemake Workflow: The Snakefile defines rules for fetching data and plotting the graph, creating a workflow that automates the entire process.
 
 
@@ -29,7 +38,7 @@ Usage
 To utilize the code in this repository, follow these steps:
 
 1.Clone the repository:
-git clone 'https://github.com/Esma-Deda/Software.git'
+git clone 'https://github.com/Esma-Deda/Software_Software.git'
 
 2.Install the required librariesusing pip:
 pip install -r requirements

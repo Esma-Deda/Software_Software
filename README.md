@@ -15,14 +15,14 @@ The repository consists of the following main code files:
 
 4.Snakefile: The Snakemake workflow file automates the entire process of fetching protein interaction data, building the graph, and visualizing the graph using defined rules.
 
-Workflow
+5.LoggingDebugging.py: The file contains code related to logging messages during code execution and providing debugging tools to diagnose and fix issues in the repository's protein interaction data analysis project.
 
-The protein interaction analysis workflow consists of the following steps:
+
+Workflow of this repository: The protein interaction analysis workflow consists of the following steps:
 
 1.Fetching Protein Interaction Data: The code fetches protein interaction data from the STRING-DB API based on the list of specified proteins. The data is then processed and stored in a DataFrame.
 
-2.Building the Protein Interaction Graph: The fetched prot
-ein interaction data is used to construct a weighted graph, where proteins are nodes, and interactions are represented as edges.
+2.Building the Protein Interaction Graph: The fetched protein interaction data is used to construct a weighted graph, where proteins are nodes, and interactions are represented as edges.
 
 3.Visualization: The graph is visualized using NetworkX and Matplotlib, producing a plot that showcases the protein interactions.
 
@@ -44,33 +44,19 @@ git clone 'https://github.com/Esma-Deda/Software_Software.git'
 pip install -r requirements
 
 3.Explore and use the code files as needed:
--Execute "TheCodeS.py" to fetch protein interaction data and plot the graph.
--Run "TestingS.py" to ensure the correctness of the code through automated tests.
--Utilize "OOP.py" to apply object-oriented programming concepts for modularity.
 
-4.To automate the workflow using Snakemake, execute the Snakefile:
+a. To fetch protein interaction data and plot the graph, execute "TheCodeS.py" in your preferred Python environment.
 
-run : snakemake
+b. For testing the correctness of the code, run "TestingS.py" to perform automated tests.
 
+c. If you want to apply object-oriented programming concepts for improved modularity, explore and use "OOP.py" which defines classes for various tasks.
 
-
-Usage:
-1.Clone the repository to your local machine using the following command: git clone https://github.com/Esma-Deda/Software_Software/tree/main
-
-2.Install the required libraries by running:
-pip install requests networkx pandas numpy matplotlib
-
-3.Execute the analysis by running the main.py script:
-
-
-
-Contributing:
-
-Contributions to this repository are welcome! If you find any issues, have suggestions for improvements, or want to add new features, feel free to create a pull request. Please follow the existing code style and include relevant tests for new functionalities.
+d. If you want to implement logging and debugging features, you can utilize the functionalities provided in "LoggingDebugging.py," which likely contains functions or classes to set up logging configuration, handle messages at different levels (e.g., debug, info, warning, error), and facilitate error tracing during code execution for effective monitoring and issue identification in the protein interaction analysis process.
 
 License:
 
 This repository is provided under the MIT License. You can find the full license in the LICENSE file.
+
 
 Author:
 

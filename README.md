@@ -1,4 +1,4 @@
-# **Protein-Protein Interaction Analysis **
+# **Protein-Protein Interaction Analysis**
 
 This repository contains Python code for protein interaction analysis using the STRING-DB API and various techniques for testing, object-oriented programming, logging, and workflow management with Snakemake. The code provides a comprehensive solution to fetch protein interaction data, build a protein interaction graph, visualize the graph, and automate the workflow using Snakemake.
 

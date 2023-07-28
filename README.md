@@ -32,6 +32,7 @@ Workflow of this repository: The protein interaction analysis workflow consists 
 
 6.Snakemake Workflow: The Snakefile defines rules for fetching data and plotting the graph, creating a workflow that automates the entire process.
 
+7.Logging and Debugging: The repository incorporates "LoggingDebugging.py," which handles logging messages during code execution and facilitates debugging, ensuring improved reliability and easier issue identification during protein interaction analysis.
 
 Usage
 

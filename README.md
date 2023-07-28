@@ -1,9 +1,9 @@
-## **Protein-Protein Interaction Analysis **
+# **Protein-Protein Interaction Analysis **
 
 This repository contains Python code for protein interaction analysis using the STRING-DB API and various techniques for testing, object-oriented programming, logging, and workflow management with Snakemake. The code provides a comprehensive solution to fetch protein interaction data, build a protein interaction graph, visualize the graph, and automate the workflow using Snakemake.
 
 
-# **Code Files**
+## **Code Files**
 
 The repository consists of the following main code files:
 
@@ -18,7 +18,7 @@ The repository consists of the following main code files:
 5.LoggingDebugging.py: The file contains code related to logging messages during code execution and providing debugging tools to diagnose and fix issues in the repository's protein interaction data analysis project.
 
 
-# **Workflow of this repository: The protein interaction analysis workflow consists of the following steps:**
+## **Workflow of this repository: The protein interaction analysis workflow consists of the following steps:**
 
 -Fetching Protein Interaction Data: The code fetches protein interaction data from the STRING-DB API based on the list of specified proteins. The data is then processed and stored in a DataFrame.
 
@@ -34,7 +34,7 @@ The repository consists of the following main code files:
 
 -Logging and Debugging: The repository incorporates "LoggingDebugging.py," which handles logging messages during code execution and facilitates debugging, ensuring improved reliability and easier issue identification during protein interaction analysis.
 
-# **Usage**
+## **Usage**
 
 To utilize the code in this repository, follow these steps:
 
@@ -54,18 +54,18 @@ c. If you want to apply object-oriented programming concepts for improved modula
 
 d. If you want to implement logging and debugging features, you can utilize the functionalities provided in "LoggingDebugging.py," which likely contains functions or classes to set up logging configuration, handle messages at different levels (e.g., debug, info, warning, error), and facilitate error tracing during code execution for effective monitoring and issue identification in the protein interaction analysis process.
 
-# **License: **
+## **License:**
 
 This repository is provided under the MIT License. You can find the full license in the LICENSE file.
 
 
-# **Author:**
+## **Author:**
 
 This repository is maintained by Esma Deda ,esma.deda@studio.unibo.it.
 
 For any questions or inquiries, please contact Esma Deda at esma.deda@studio.unibo.it
 
-# **Contributions and Feedback**
+## **Contributions and Feedback**
 
 Contributions to this repository are welcome! If you find any issues or have suggestions for improvements, please feel free to create pull requests or raise issues.
 

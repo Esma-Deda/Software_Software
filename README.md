@@ -1,9 +1,9 @@
-Protein-Protein Interaction Analysis 
+## **Protein-Protein Interaction Analysis **
 
 This repository contains Python code for protein interaction analysis using the STRING-DB API and various techniques for testing, object-oriented programming, logging, and workflow management with Snakemake. The code provides a comprehensive solution to fetch protein interaction data, build a protein interaction graph, visualize the graph, and automate the workflow using Snakemake.
 
 
-Code Files
+# **Code Files**
 
 The repository consists of the following main code files:
 
@@ -18,23 +18,23 @@ The repository consists of the following main code files:
 5.LoggingDebugging.py: The file contains code related to logging messages during code execution and providing debugging tools to diagnose and fix issues in the repository's protein interaction data analysis project.
 
 
-Workflow of this repository: The protein interaction analysis workflow consists of the following steps:
+# **Workflow of this repository: The protein interaction analysis workflow consists of the following steps:**
 
-1.Fetching Protein Interaction Data: The code fetches protein interaction data from the STRING-DB API based on the list of specified proteins. The data is then processed and stored in a DataFrame.
+-Fetching Protein Interaction Data: The code fetches protein interaction data from the STRING-DB API based on the list of specified proteins. The data is then processed and stored in a DataFrame.
 
-2.Building the Protein Interaction Graph: The fetched protein interaction data is used to construct a weighted graph, where proteins are nodes, and interactions are represented as edges.
+-Building the Protein Interaction Graph: The fetched protein interaction data is used to construct a weighted graph, where proteins are nodes, and interactions are represented as edges.
 
-3.Visualization: The graph is visualized using NetworkX and Matplotlib, producing a plot that showcases the protein interactions.
+-Visualization: The graph is visualized using NetworkX and Matplotlib, producing a plot that showcases the protein interactions.
 
-4.Testing: The code includes a testing module with pytest functions to ensure the accuracy of fetching data and building the graph.
+-Testing: The code includes a testing module with pytest functions to ensure the accuracy of fetching data and building the graph.
 
-5.Object-Oriented Programming: The code implements OOP principles by defining classes for the interaction fetching, graph building, and graph visualization processes.
+-Object-Oriented Programming: The code implements OOP principles by defining classes for the interaction fetching, graph building, and graph visualization processes.
 
-6.Snakemake Workflow: The Snakefile defines rules for fetching data and plotting the graph, creating a workflow that automates the entire process.
+-Snakemake Workflow: The Snakefile defines rules for fetching data and plotting the graph, creating a workflow that automates the entire process.
 
-7.Logging and Debugging: The repository incorporates "LoggingDebugging.py," which handles logging messages during code execution and facilitates debugging, ensuring improved reliability and easier issue identification during protein interaction analysis.
+-Logging and Debugging: The repository incorporates "LoggingDebugging.py," which handles logging messages during code execution and facilitates debugging, ensuring improved reliability and easier issue identification during protein interaction analysis.
 
-Usage
+# **Usage**
 
 To utilize the code in this repository, follow these steps:
 
@@ -54,18 +54,18 @@ c. If you want to apply object-oriented programming concepts for improved modula
 
 d. If you want to implement logging and debugging features, you can utilize the functionalities provided in "LoggingDebugging.py," which likely contains functions or classes to set up logging configuration, handle messages at different levels (e.g., debug, info, warning, error), and facilitate error tracing during code execution for effective monitoring and issue identification in the protein interaction analysis process.
 
-License:
+# **License: **
 
 This repository is provided under the MIT License. You can find the full license in the LICENSE file.
 
 
-Author:
+# **Author:**
 
 This repository is maintained by Esma Deda ,esma.deda@studio.unibo.it.
 
 For any questions or inquiries, please contact Esma Deda at esma.deda@studio.unibo.it
 
-Contributions and Feedback
+# **Contributions and Feedback**
 
 Contributions to this repository are welcome! If you find any issues or have suggestions for improvements, please feel free to create pull requests or raise issues.
 

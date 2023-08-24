@@ -11,11 +11,11 @@ graph [
   ]
   node [
     id 2
-    label "BRCA1"
+    label "RAD51"
   ]
   node [
     id 3
-    label "RAD51"
+    label "BRCA1"
   ]
   node [
     id 4
@@ -43,17 +43,17 @@ graph [
   ]
   edge [
     source 1
-    target 3
-    weight 0.993
-  ]
-  edge [
-    source 1
     target 4
-    weight 0.996
+    weight 0.995
   ]
   edge [
     source 1
     target 2
+    weight 0.995
+  ]
+  edge [
+    source 1
+    target 3
     weight 0.999
   ]
   edge [
@@ -63,12 +63,12 @@ graph [
   ]
   edge [
     source 4
-    target 3
+    target 2
     weight 0.999
   ]
   edge [
     source 4
-    target 2
+    target 3
     weight 0.999
   ]
 ]

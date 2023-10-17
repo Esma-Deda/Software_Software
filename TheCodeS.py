@@ -19,9 +19,9 @@ def fetch_protein_interaction_graph(proteins):
     url = 'https://string-db.org/api/tsv/network?'
     params = {
         'identifiers': '%0d'.join(proteins),
-        'species': 9606,
-        'required_score': 400,
-        'caller_identity': 'TheCodeS.py'
+        'species': 9606,  # Human species code
+        'required_score': 400,   # Minimum interaction score
+        'caller_identity': 'TheCodeS.py'  # Identify the caller
     }
     # Send the API request and get the response
     response = requests.get(url, params=params)
@@ -37,7 +37,6 @@ def fetch_protein_interaction_graph(proteins):
 
     return df
 
-    
 def create_protein_interaction_graph(df):
     """
     Creates a protein interaction graph from a DataFrame.
@@ -47,18 +46,17 @@ def create_protein_interaction_graph(df):
         
     Returns:
         nx.Graph: Protein interaction graph.
-    """   
-    G = nx.DiGraph(name='Protein Interaction Graph') # Empty graph object
+    """
+    G = nx.Graph(name='Protein Interaction Graph')  
 
     # Iterate over the rows of the DataFrame and add edges to the graph
-    for _, interaction in df.iterrows():  # Iterates over DataFrame rows and returns the index and row data as a Series
+    for _, interaction in df.iterrows():
         a = interaction['preferredName_A']
         b = interaction['preferredName_B']
         w = float(interaction['score'])  # score as weighted edge where high scores = low weight
         G.add_weighted_edges_from([(a, b, w)])
 
     return G
-
 
 def save_interaction_graph_gml(G, filename):
     """

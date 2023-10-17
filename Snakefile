@@ -10,11 +10,23 @@ rule fetch_protein_interaction_graph:
     output:
         graph_gml="protein_interaction_graph.gml"
     params:
-        proteins=['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
+        proteins="BRCA1 BRCA2 ATM RAD51 PALB2"
     script:
-        "TheCode.py"
+        "TheCodeS.py"
 
-# Rule 2: plot_interaction_graph
+# Rule 2: create_protein_interaction_graph
+rule create_protein_interaction_graph:
+    """
+    Creates the protein interaction graph from the fetched data.
+    """
+    input:
+        graph_data="protein_interaction_graph.gml"  # Change to match the expected input file
+    output:
+        graph_gml="protein_interaction_graph.gml"
+    script:
+        "TheCodeS.py"
+
+# Rule 3: plot_interaction_graph
 rule plot_interaction_graph:
     """
     Plots the protein interaction graph.
@@ -24,9 +36,9 @@ rule plot_interaction_graph:
     output:
         plot_png="output.png"
     script:
-        "TheCode.py"
+        "TheCodeS.py"
 
-# Rule 3: all (Final Output Rule) that define the final output file or target for the workflow
+# Rule 4: all (Final Output Rule) that defines the final output file or target for the workflow
 rule all:
     input:
         "output.png"

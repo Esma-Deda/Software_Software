@@ -1,7 +1,7 @@
 # Ignore .snakemake.log file
-Software_Software/.snakemake/log/
+.snakemake/log/
 
 
 # Ignore _pycache_ directory
-Software_Software/__pycache__/
+__pycache__/
 

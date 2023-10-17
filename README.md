@@ -16,6 +16,34 @@ The repository consists of the following main code files:
 5.LoggingDebugging.py: The file contains code related to logging messages during code execution and providing debugging tools to diagnose and fix issues in the repository's protein interaction data analysis project.
 
 
+## **Installation Instructions**
+
+To run this repository, follow these steps:
+
+### Prerequisites
+- Python 3.11
+- Required Python libraries (install via pip):
+  - requests
+  - networkx
+  - pandas
+  - numpy
+  - matplotlib
+
+### Installation
+1. Clone this GitHub repository to your local machine:
+   ```bash
+   git clone https://github.com/Esma-Deda/Software_Software/blob/main/TheCodeS.py
+
+2. Navigate to the project directory:
+
+   cd protein-interaction-analysis
+
+3. Run the code by executing the following command:
+    python TheCodeS.py
+
+4. View the results in the 'output.png' image file.
+
+
 ## **Data Resources**
 
 The codes uses the STRING-DB API to fetch protein interaction data. You can find more information about the API here: STRING-DB API Documentation.
@@ -51,4 +79,3 @@ For any questions or inquiries, please contact Esma Deda at (esma.deda@studio.un
 ## **Contributions and Feedback**
 
 Contributions to this repository are welcome! If you find any issues or have suggestions for improvements, please feel free to create pull requests or raise issues.
-

@@ -21,7 +21,7 @@ The repository consists of the following main code files:
 To run this repository, follow these steps:
 
 ### Prerequisites
-- Python 3.x
+- Python 3.11
 - Required Python libraries (install via pip):
   - requests
   - networkx
@@ -32,7 +32,7 @@ To run this repository, follow these steps:
 ### Installation
 1. Clone this GitHub repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/protein-interaction-analysis.git
+   git clone https://github.com/Esma-Deda/Software_Software.git
 
 2. Navigate to the project directory:
 

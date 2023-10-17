@@ -20,7 +20,7 @@ rule create_protein_interaction_graph:
     Creates the protein interaction graph from the fetched data.
     """
     input:
-        graph_data="protein_interaction_graph.gml"  # Change to match the expected input file
+        graph_data="protein_interaction_graph.gml"  
     output:
         graph_gml="protein_interaction_graph.gml"
     script:

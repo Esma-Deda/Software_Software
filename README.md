@@ -50,27 +50,23 @@ The codes uses the STRING-DB API to fetch protein interaction data. You can find
 
 ## **Code Structure**
 
-The code is structured into classes to handle different aspects of the analysis. Here's an overview:
+The code is organized into classes to manage different aspects of the analysis. Here's a high-level overview:
 
-ProteinInteractionFetcher:
+### ProteinInteractionFetcher
+- **Description:** Fetches protein interaction data from the STRING-DB API.
 
-    -Fetches protein interaction data from the STRING-DB API.
+### ProteinInteractionGraphBuilder
+- **Description:** Constructs the protein interaction graph from the fetched data.
 
-ProteinInteractionGraphBuilder:
+### ProteinInteractionGraphVisualizer
+- **Description:** Visualizes the protein interaction graph and saves it as an image.
 
-    -Constructs the protein interaction graph from the fetched data.
+### Logging
+- **Description:** The project employs the Python logging module to capture and log events and errors during execution. Log messages are stored in the "debug.log" file.
 
-ProteinInteractionGraphVisualizer:
+### Error Handling
+- **Description:** The code includes error handling with try-except blocks to gracefully capture and log errors.
 
-    -Visualizes the protein interaction graph and saves it as an image.
-
-Logging:
-
-    -The project uses the Python logging module to capture and log events and errors during execution. Log messages are saved in the "debug.log" file.
-
-Error Handling:
-
-    -The code incorporates error handling with try-except blocks to capture and log errors gracefully.
 
 
 ## **License:**

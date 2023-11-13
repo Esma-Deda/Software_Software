@@ -1,8 +1,9 @@
-#Import the necessary libraries.
+# Import the necessary libraries.
 import unittest
-import os
 import pandas as pd
 import networkx as nx
+import logging
+
 from TheCodeS import (
     fetch_protein_interaction_graph,
     create_protein_interaction_graph,
@@ -10,10 +11,12 @@ from TheCodeS import (
     plot_interaction_graph,
 )
 
+# Set up logging during testing
+logging.basicConfig(filename='debug.log', level=logging.DEBUG)
 
 class TestFetchProteinInteractionGraph(unittest.TestCase):
     """
-    This test case class is used to test the `fetch_protein_interaction_graph` function, 
+    Test cases for the `fetch_protein_interaction_graph` function, 
     which retrieves protein interaction data from an external source.
     """
     
@@ -23,15 +26,20 @@ class TestFetchProteinInteractionGraph(unittest.TestCase):
         1. A successful Data Retrieval.
         2. Data Availability and Validity.
         3. Ensure that it contains the necessary columns.
+        4. Test if the data contains only the specified proteins.
         """
-        # Define a list of protein names.
-        proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
-        # Fetch the protein interaction data for the specified proteins.
-        interaction_data = fetch_protein_interaction_graph(proteins)
+        try:
+            # Fetch the protein interaction data for the specified proteins.
+            interaction_data = fetch_protein_interaction_graph(['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2'])
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            raise
+
         # Check if the fetched data is not None, indicating that the data was successfully retrieved.
         self.assertIsNotNone(interaction_data)
         # Check if the number of rows in the interaction data is greater than 0, ensuring it's not empty.
         self.assertTrue(interaction_data.shape[0] > 0)
+
         # Fetch interaction data for the same set of proteins and store it in the 'interactions' variable.
         interactions = fetch_protein_interaction_graph(['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2'])
         # Check if the returned value is a DataFrame.
@@ -43,10 +51,26 @@ class TestFetchProteinInteractionGraph(unittest.TestCase):
         assert "preferredName_B" in interactions.columns, "Column 'preferredName_B' is missing"
         assert "score" in interactions.columns, "Column 'score' is missing"
 
+        # Define a list of two protein names.
+        proteins_to_test = ['BRCA1', 'BRCA2']
+        # Fetch the protein interaction data for the specified proteins.
+        interaction_data = fetch_protein_interaction_graph(proteins_to_test)
+         # Check if the fetched data is not None, indicating that the data was successfully retrieved.
+        self.assertIsNotNone(interaction_data)
+        # Check if the number of rows in the interaction data is greater than 0, ensuring it's not empty.
+        self.assertTrue(interaction_data.shape[0] > 0)
+        # Check if the DataFrame contains only the specified proteins.
+        proteins_in_data = set(interaction_data['preferredName_A']).union(set(interaction_data['preferredName_B']))
+        self.assertEqual(set(proteins_to_test), proteins_in_data)
+        # Check if specific columns are present in the DataFrame.
+        self.assertIn("preferredName_A", interaction_data.columns)
+        self.assertIn("preferredName_B", interaction_data.columns)
+        self.assertIn("score", interaction_data.columns)
+
 
 class TestCreateProteinInteractionGraph(unittest.TestCase):
     """
-    This test case class is used to test the `create_protein_interaction_graph` function,
+    Test cases for the `create_protein_interaction_graph` function,
     which creates a NetworkX graph from protein interaction data.
     """
 
@@ -54,15 +78,18 @@ class TestCreateProteinInteractionGraph(unittest.TestCase):
         """
         Tests the creation of the protein interaction graph.
         """
-        sample_data = [
-            ['BRCA1', 'BRCA2', 500],
-            ['BRCA1', 'ATM', 300],
-            ['BRCA2', 'ATM', 200]
-        ]
-        df = pd.DataFrame(sample_data, columns=['preferredName_A', 'preferredName_B', 'score'])
-
-        # Create a protein interaction graph using the defined or fetched data.
-        G = create_protein_interaction_graph(df)
+        try:
+            # Create a protein interaction graph using the defined or fetched data.
+            sample_data = [
+                ['BRCA1', 'BRCA2', 500],
+                ['BRCA1', 'ATM', 300],
+                ['BRCA2', 'ATM', 200]
+            ]
+            df = pd.DataFrame(sample_data, columns=['preferredName_A', 'preferredName_B', 'score'])
+            G = create_protein_interaction_graph(df)
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            raise
 
         for interaction in df.values:
             a, b, w = interaction[0], interaction[1], interaction[2]
@@ -80,9 +107,10 @@ class TestCreateProteinInteractionGraph(unittest.TestCase):
         # Check the name of the graph
         self.assertEqual(G.name, 'Protein Interaction Graph')
 
+
 class TestSaveInteractionGraphGML(unittest.TestCase):
     """
-    This test case class is used to test the `save_interaction_graph_gml` function,
+    Test cases for the `save_interaction_graph_gml` function,
     which saves a NetworkX graph in GML format.
     """
     def setUp(self):
@@ -99,29 +127,62 @@ class TestSaveInteractionGraphGML(unittest.TestCase):
         """
         Test the `save_interaction_graph_gml` function to ensure it saves the graph in GML format.
         """
+
+        try:
+            # Call the function to save the graph in GML format
+            save_interaction_graph_gml(self.G, self.test_filename)
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            raise
+
         # Call the function to save the graph in GML format
         save_interaction_graph_gml(self.G, self.test_filename)
+
         # Check if the saved file is in GML format
         with open(self.test_filename, 'r') as file:
             file_content = file.read()
             self.assertTrue(file_content.startswith('graph'))
 
+            # Check if specific nodes are present in the file content
+            self.assertIn('node', file_content)
+            self.assertIn('BRCA1', file_content)
+            self.assertIn('BRCA2', file_content)
+            self.assertIn('ATM', file_content)
+
+            # Check if specific edges are present in the file content
+            self.assertIn('edge', file_content)
+            self.assertIn('source 0', file_content)  # Assuming 'BRCA1' is the first node in the list
+            self.assertIn('target 1', file_content)  # Assuming 'BRCA2' is the second node in the list
+            self.assertIn('source 0', file_content)  # Assuming 'BRCA1' is the first node in the list
+            self.assertIn('target 2', file_content)  # Assuming 'ATM' is the third node in the list
+            self.assertIn('source 1', file_content)  # Assuming 'BRCA2' is the second node in the list
+            self.assertIn('target 2', file_content)  # Assuming 'ATM' is the third node in the list
+
 class TestPlotInteractionGraph(unittest.TestCase):
     """
-    This test case class is used to test the `plot_interaction_graph` function,
+    Test cases for the `plot_interaction_graph` function,
     which generates a visual plot of a NetworkX graph.
     """
     def test_plot_interaction_graph(self):
         """
-        Test the `plot_interaction_graph` function to ensure the existing  nodes to the graph.
+        Test the `plot_interaction_graph` function to ensure the existing nodes in the graph.
         """
+        try:
+            # Fetch protein interaction data, create a graph, and plot it
+            proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
+            interactions = fetch_protein_interaction_graph(proteins)
+            G = create_protein_interaction_graph(interactions)
+            plot_interaction_graph(G)
+        except Exception as e:
+            logging.error(f"An unexpected error occurred: {e}")
+            raise
+
         proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
         interactions = fetch_protein_interaction_graph(proteins)
         G = create_protein_interaction_graph(interactions)
 
         # Check if the returned value is an nx.Graph
         assert isinstance(G, nx.Graph), "Returned value is not an nx.Graph"
-        
 
         # Check if the set of nodes in the graph matches the expected set of proteins 
         assert set(G.nodes()) == set(proteins), "Missing or additional proteins in the graph"
@@ -134,6 +195,18 @@ class TestPlotInteractionGraph(unittest.TestCase):
 
         # Check if the graph contains edges (interactions)
         assert G.number_of_edges() > 0, "Graph has no interactions (edges)"
-        
+
+        # Log the exceptions during testing
+        with self.assertLogs(level='ERROR') as log:
+            # Fetch protein interaction data, create a graph, and plot it
+            proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
+            interactions = fetch_protein_interaction_graph(proteins)
+            G = create_protein_interaction_graph(interactions)
+            plot_interaction_graph(G)
+
+        # Check if there were no errors logged
+        self.assertEqual(log.output, [], f"Errors were logged: {log.output}")
+
+
 if __name__ == '__main__':
     unittest.main()

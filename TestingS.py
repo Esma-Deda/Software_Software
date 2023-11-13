@@ -3,6 +3,7 @@ import unittest
 import pandas as pd
 import networkx as nx
 import logging
+import requests
 
 from TheCodeS import (
     fetch_protein_interaction_graph,
@@ -66,6 +67,37 @@ class TestFetchProteinInteractionGraph(unittest.TestCase):
         self.assertIn("preferredName_A", interaction_data.columns)
         self.assertIn("preferredName_B", interaction_data.columns)
         self.assertIn("score", interaction_data.columns)
+
+
+    def test_check_url(self):
+        """
+        Test to check if the URL is accessible without raising an exception.
+        """
+        # Define the URL to be checked
+        url = 'https://string-db.org/api/tsv/network?'
+
+        # Define the list of proteins
+        proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
+
+        # Add parameters to the request
+        params = {
+            'identifiers': ','.join(proteins),  
+            'species': 9606,  # Human species code
+            'required_score': 400,  # Minimum interaction score
+            'caller_identity': 'TheCodeS.py'  # Identify the caller
+        }
+
+        try:
+            response = requests.get(url, params=params)
+            response.raise_for_status()  # Raise an HTTP Error for bad responses
+        except requests.exceptions.RequestException as e:
+            # Log the error and raise an exception
+            logging.error(f"An unexpected error occurred while checking the URL: {e}")
+            raise
+
+        # Check if the response status code is 200, indicating a successful request
+        self.assertEqual(response.status_code, 200, "URL is not accessible") # HTTP status code 200 is the standard response for a successful HTTP request. 
+
 
 
 class TestCreateProteinInteractionGraph(unittest.TestCase):
@@ -192,21 +224,10 @@ class TestPlotInteractionGraph(unittest.TestCase):
 
         # Check if the graph is not empty
         assert G.number_of_nodes() > 0, "Graph is empty"
-
+      
         # Check if the graph contains edges (interactions)
         assert G.number_of_edges() > 0, "Graph has no interactions (edges)"
 
-        # Log the exceptions during testing
-        with self.assertLogs(level='ERROR') as log:
-            # Fetch protein interaction data, create a graph, and plot it
-            proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
-            interactions = fetch_protein_interaction_graph(proteins)
-            G = create_protein_interaction_graph(interactions)
-            plot_interaction_graph(G)
-
-        # Check if there were no errors logged
-        self.assertEqual(log.output, [], f"Errors were logged: {log.output}")
-
-
+        
 if __name__ == '__main__':
     unittest.main()

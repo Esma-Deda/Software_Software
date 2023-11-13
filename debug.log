@@ -1596,3 +1596,124 @@ DEBUG:matplotlib.font_manager:findfont: score(FontEntry(fname='/System/Library/F
 DEBUG:matplotlib.font_manager:findfont: score(FontEntry(fname='/System/Library/Fonts/Supplemental/SuperClarendon.ttc', name='Superclarendon', style='normal', variant='normal', weight=400, stretch='normal', size='scalable')) = 10.335
 DEBUG:matplotlib.font_manager:findfont: Matching sans\-serif:style=normal:variant=normal:weight=bold:stretch=normal:size=12.0 to DejaVu Sans ('/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/matplotlib/mpl-data/fonts/ttf/DejaVuSans-Bold.ttf') with score of 0.050000.
 INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+ERROR:root:An unexpected error occurred:
+Traceback (most recent call last):
+  File "/Users/esmaisufi/Software/LoggingDebugging.py", line 113, in <module>
+    interaction_graph = create_protein_interaction_graph(interaction_data)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/esmaisufi/Software/LoggingDebugging.py", line 72, in create_protein_interaction_graph
+    for interaction in interactions:
+TypeError: 'NoneType' object is not iterable
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+ERROR:root:An unexpected error occurred:
+Traceback (most recent call last):
+  File "/Users/esmaisufi/Software/LoggingDebugging.py", line 113, in <module>
+    interaction_graph = create_protein_interaction_graph(interaction_data)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/esmaisufi/Software/LoggingDebugging.py", line 72, in create_protein_interaction_graph
+    for interaction in interactions:
+TypeError: 'NoneType' object is not iterable
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+DEBUG:root:Adding edge (PALB2, ATM) with weight 0.945
+DEBUG:root:Adding edge (PALB2, ATM) with weight 0.945
+DEBUG:root:Adding edge (PALB2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (PALB2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA2) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA2) with weight 0.999
+DEBUG:root:Adding edge (ATM, BRCA2) with weight 0.995
+DEBUG:root:Adding edge (ATM, BRCA2) with weight 0.995
+DEBUG:root:Adding edge (ATM, RAD51) with weight 0.995
+DEBUG:root:Adding edge (ATM, RAD51) with weight 0.995
+DEBUG:root:Adding edge (ATM, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (ATM, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA1, RAD51) with weight 0.999
+INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+DEBUG:root:Adding edge (PALB2, ATM) with weight 0.945
+DEBUG:root:Adding edge (PALB2, ATM) with weight 0.945
+DEBUG:root:Adding edge (PALB2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (PALB2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA2) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA2) with weight 0.999
+DEBUG:root:Adding edge (ATM, BRCA2) with weight 0.995
+DEBUG:root:Adding edge (ATM, BRCA2) with weight 0.995
+DEBUG:root:Adding edge (ATM, RAD51) with weight 0.995
+DEBUG:root:Adding edge (ATM, RAD51) with weight 0.995
+DEBUG:root:Adding edge (ATM, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (ATM, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA1, RAD51) with weight 0.999
+INFO:root:Code execution completed successfully.
+DEBUG:urllib3.connectionpool:Starting new HTTPS connection (1): string-db.org:443
+DEBUG:urllib3.connectionpool:https://string-db.org:443 "GET /api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py HTTP/1.1" 200 None
+DEBUG:root:API request URL: https://string-db.org/api/tsv/network?identifiers=BRCA1%250dBRCA2%250dATM%250dRAD51%250dPALB2&species=9606&required_score=400&caller_identity=final_project.py
+DEBUG:root:API response status code: 200
+DEBUG:root:Adding edge (PALB2, ATM) with weight 0.945
+DEBUG:root:Adding edge (PALB2, ATM) with weight 0.945
+DEBUG:root:Adding edge (PALB2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (PALB2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA2) with weight 0.999
+DEBUG:root:Adding edge (PALB2, BRCA2) with weight 0.999
+DEBUG:root:Adding edge (ATM, BRCA2) with weight 0.995
+DEBUG:root:Adding edge (ATM, BRCA2) with weight 0.995
+DEBUG:root:Adding edge (ATM, RAD51) with weight 0.995
+DEBUG:root:Adding edge (ATM, RAD51) with weight 0.995
+DEBUG:root:Adding edge (ATM, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (ATM, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, RAD51) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA2, BRCA1) with weight 0.999
+DEBUG:root:Adding edge (BRCA1, RAD51) with weight 0.999
+INFO:root:Code execution completed successfully.

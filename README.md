@@ -1,20 +1,6 @@
 # **Protein-Protein Interaction Analysis**
 
-This repository contains Python code for protein interaction analysis using the STRING-DB API and various techniques for testing, object-oriented programming, logging, and workflow management with Snakemake. The code provides a comprehensive solution to fetch protein interaction data, build a protein interaction graph, visualize the graph, and automate the workflow using Snakemake.
-
-## **Code Files**
-The repository consists of the following main code files:
-
-1.TheCodeS.py: This file contains the core functions for fetching protein interaction data from the STRING-DB API, building the protein interaction graph, and visualizing the graph using NetworkX and Matplotlib libraries.
-
-2.TestingS.py: This file contains test functions to ensure the correctness and reliability of the protein interaction fetching and graph building processes. The tests are implemented using the pytest framework.
-
-3.OOP.py: This file demonstrates object-oriented programming (OOP) techniques to enhance code modularity and reusability. It defines classes for fetching protein interaction data, building the graph, and visualizing the graph.
-
-4.Snakefile: The Snakemake workflow file automates the entire process of fetching protein interaction data, building the graph, and visualizing the graph using defined rules.
-
-5.LoggingDebugging.py: The file contains code related to logging messages during code execution and providing debugging tools to diagnose and fix issues in the repository's protein interaction data analysis project.
-
+This repository contains Python code for protein interaction analysis using the STRING-DB API and various techniques for testing,  logging, and workflow management with Snakemake. The code provides a comprehensive solution to fetch protein interaction data, build a protein interaction graph, visualize the graph, and automate the workflow using Snakemake.
 
 ## **Installation Instructions**
 
@@ -44,6 +30,16 @@ To run this repository, follow these steps:
 4. View the results in the 'output.png' image file.
 
 
+## **Code Files**
+The repository consists of the following main code files:
+
+1.TheCodeS.py: This file contains the core functions for fetching protein interaction data from the STRING-DB API, building the protein interaction graph, and visualizing the graph using NetworkX and Matplotlib libraries.
+
+2.TestingS.py: This file contains test functions to ensure the correctness and reliability of the protein interaction fetching and graph building processes. The tests are implemented using the pytest framework.
+
+3.Snakefile: The Snakemake workflow file automates the entire process of fetching protein interaction data, building the graph, and visualizing the graph using defined rules.
+
+
 ## **Data Resources**
 
 The codes uses the STRING-DB API to fetch protein interaction data. You can find more information about the API here: STRING-DB API Documentation.
@@ -71,7 +67,7 @@ The code is organized into classes to manage different aspects of the analysis. 
 
 ## **License:**
 
-This repository is provided under the MIT License. You can find the full license in the LICENSE file.
+This repository is provided under the MIT License. 
 
 
 ## **Author:**

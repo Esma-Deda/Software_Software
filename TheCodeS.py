@@ -1,5 +1,4 @@
 #Import all the necessary libraries 
-
 import requests
 import networkx as nx
 import pandas as pd
@@ -16,13 +15,18 @@ def fetch_protein_interaction_graph(proteins):
     Returns:
         pd.DataFrame: DataFrame with interaction information.
     """
+
+    # Retrieve the URL
     url = 'https://string-db.org/api/tsv/network?'
+    
+    # Add parameters to the request
     params = {
         'identifiers': '%0d'.join(proteins),
         'species': 9606,  # Human species code
         'required_score': 400,   # Minimum interaction score
         'caller_identity': 'TheCodeS.py'  # Identify the caller
     }
+    
     # Send the API request and get the response
     response = requests.get(url, params=params)
 
@@ -30,12 +34,16 @@ def fetch_protein_interaction_graph(proteins):
     data = [line.split('\t') for line in response.content.decode('utf-8').split('\n') if line and line[0] != '#']
     
     # Create a DataFrame from the response data
-    df = pd.DataFrame(data[1:-1], columns=data[0]) 
+    df = pd.DataFrame(data[1:], columns=data[0]) 
     
     # Extract the relevant columns for interactions
     interactions = df[['preferredName_A', 'preferredName_B', 'score']]
 
-    return df
+    return interactions
+
+# Fetch the protein interaction data
+proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
+interaction_data = fetch_protein_interaction_graph(proteins)
 
 def create_protein_interaction_graph(df):
     """
@@ -58,6 +66,9 @@ def create_protein_interaction_graph(df):
 
     return G
 
+# Create the protein interaction graph
+interaction_graph = create_protein_interaction_graph(interaction_data)
+
 def save_interaction_graph_gml(G, filename):
     """
     Saves a protein interaction graph in GML format.
@@ -68,7 +79,9 @@ def save_interaction_graph_gml(G, filename):
     """
     nx.write_gml(G, filename)
 
-    
+# Save the interaction graph in GML format
+save_interaction_graph_gml(interaction_graph, "protein_interaction_graph.gml")
+
 def plot_interaction_graph(G):
     """
     Plots the protein interaction graph.
@@ -81,18 +94,6 @@ def plot_interaction_graph(G):
     nx.draw_networkx(G, pos=pos, with_labels=True, font_color='white', font_weight='bold', node_color='blue', edge_color='black')
     plt.axis('off')
     plt.savefig('output.png')
-
-# Define the list of proteins
-proteins = ['BRCA1', 'BRCA2', 'ATM', 'RAD51', 'PALB2']
-
-# Fetch the protein interaction data
-interaction_data = fetch_protein_interaction_graph(proteins)
-
-# Create the protein interaction graph
-interaction_graph = create_protein_interaction_graph(interaction_data)
-
-# Save the graph in GML format
-save_interaction_graph_gml(interaction_graph, "protein_interaction_graph.gml")
 
 # Plot the interaction graph
 plot_interaction_graph(interaction_graph)

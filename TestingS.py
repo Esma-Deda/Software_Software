@@ -185,11 +185,8 @@ class TestSaveInteractionGraphGML(unittest.TestCase):
             self.assertIn('edge', file_content)
             self.assertIn('source 0', file_content)  # Assuming 'BRCA1' is the first node in the list
             self.assertIn('target 1', file_content)  # Assuming 'BRCA2' is the second node in the list
-            self.assertIn('source 0', file_content)  # Assuming 'BRCA1' is the first node in the list
             self.assertIn('target 2', file_content)  # Assuming 'ATM' is the third node in the list
-            self.assertIn('source 1', file_content)  # Assuming 'BRCA2' is the second node in the list
-            self.assertIn('target 2', file_content)  # Assuming 'ATM' is the third node in the list
-
+            
 class TestPlotInteractionGraph(unittest.TestCase):
     """
     Test cases for the `plot_interaction_graph` function,

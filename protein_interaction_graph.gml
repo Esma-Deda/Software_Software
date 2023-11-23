@@ -1,5 +1,4 @@
 graph [
-  directed 1
   name "Protein Interaction Graph"
   node [
     id 0
@@ -57,18 +56,18 @@ graph [
     weight 0.999
   ]
   edge [
-    source 3
-    target 2
+    source 2
+    target 4
     weight 0.999
   ]
   edge [
-    source 4
-    target 2
-    weight 0.999
-  ]
-  edge [
-    source 4
+    source 2
     target 3
+    weight 0.999
+  ]
+  edge [
+    source 3
+    target 4
     weight 0.999
   ]
 ]
